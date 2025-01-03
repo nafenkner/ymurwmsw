@@ -13,17 +13,17 @@ export class RecipiesComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.loadBooks();
+    this.loadRecipies();
   }
 
-  loadBooks(): void {
-    this.authService.getBooks().subscribe(
+  loadRecipies(): void {
+    this.authService.getRecipies().subscribe(
       response => {
         this.recipies = response;
       },
       error => {
-        this.message = 'Failed to load books. Please try again.';
-        console.error('Error loading books:', error);
+        this.message = 'Failed to load recipies. Please try again.';
+        console.error('Error loading recipies:', error);
       }
     );
   }

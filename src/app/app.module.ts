@@ -10,7 +10,7 @@ import { HomeComponent } from './home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { RecipiesDetailsComponent } from './recipies-details/recipies-details.component';
+import { RecipeDetailsComponent } from './recipies-details/recipe-details.component';
 import { RecipiesComponent } from './recipies/recipies.component';
 
 var routes: any = [
@@ -25,12 +25,12 @@ var routes: any = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }, 
   { path: 'recipies', component: RecipiesComponent },
-  { path: 'recipies/:id', component: RecipiesDetailsComponent },  
+  { path: 'recipies/:id', component: RecipeDetailsComponent },  
 ];
 
 @NgModule({
   declarations: [AppComponent, BusinessesComponent, HomeComponent, NavbarComponent, RecipiesComponent,
-    RecipiesDetailsComponent,LoginComponent, RegisterComponent],
+    RecipeDetailsComponent,LoginComponent, RegisterComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes) ], 
   providers: [WebService],
   bootstrap: [AppComponent],

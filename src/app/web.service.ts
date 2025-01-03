@@ -6,8 +6,8 @@ export class WebService {
   business_list: any; 
   constructor(private http: HttpClient) {}
 
-  getBusinesses() {
-    return this.http.get('http://localhost:5000/businesses').subscribe((response: any) => { 
+  getRecipies() {
+    return this.http.get('http://localhost:5000/recipies').subscribe((response: any) => { 
       this.business_list = response; 
       console.log(response) 
       });

@@ -1,13 +1,14 @@
 <div>
-    <h2>Top 10 Recipies</h2>
-    <ul>
-      <li *ngFor="let recipie of recipies">
-        <a [routerLink]="['/recipies', recipie._id]">
-          <strong>{{ recipie.name }}</strong><br>
-          Author: {{ recipie.ingredients }}<br>
-          Genre: {{ recipie.instructions }}
-        </a>
-        <hr>
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <br>
+    <li *ngFor="let recipie of recipies">
+      <a [routerLink]="['/recipies', recipie._id]">
+        <p> Recipe Name: {{ recipie.name }}</p><br>
+        <p> Cook Time: {{ recipie.cookTimeMinutes }} minutes</p><br>
+        <p> Difficulty Level: {{ recipie.difficulty }}</p><br>
+        <p> Rating: {{ recipie.rating }}</p><br>
+      </a>
+      <hr>
+    </li>
+  </ul>
+</div>

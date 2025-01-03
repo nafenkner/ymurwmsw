@@ -1,0 +1,15 @@
+<div *ngIf="recipe">
+  <h2>{{ recipe.name }}</h2>
+
+  <h3>Comments:</h3>
+  <ul>
+    <li *ngFor="let comment of recipe.comments">
+      <strong>{{ comment.user }}:</strong> {{ comment.comment }}
+    </li>
+  </ul>
+
+  <h3>Add Comment:</h3>
+  <textarea [(ngModel)]="comment" placeholder="Write your comment here"></textarea>
+  <button (click)="addComment()">Submit</button>
+  <p *ngIf="message">{{ message }}</p>
+</div>

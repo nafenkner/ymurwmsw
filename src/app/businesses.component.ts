@@ -10,6 +10,6 @@ export class BusinessesComponent {
   business_list: any;
   constructor(public webService: WebService) {}
   ngOnInit() { 
-    this.webService.getBusinesses(); 
+    this.webService.getRecipies(); 
 } 
 }

@@ -3,15 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-recipies-details',
-  templateUrl: './recipies-details.component.html',
-  styleUrls: ['./recipies-details.component.css']
+  selector: 'app-recipe-details',
+  templateUrl: './recipe-details.component.html',
+  styleUrls: ['./recipe-details.component.css']
 })
-export class RecipiesDetailsComponent implements OnInit {
-  recipie: any;
+export class RecipeDetailsComponent implements OnInit {
+  recipe: any;
   comment: string = '';
   message: string = '';
-  username: string = '';
+  username: string = ''; 
 
   constructor(
     private authService: AuthService,
@@ -20,18 +20,18 @@ export class RecipiesDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const recipieId = this.route.snapshot.paramMap.get('id');
-    if (recipieId) {
-      this.loadBookDetails(recipieId);
+    const recipeId = this.route.snapshot.paramMap.get('name');
+    if (recipeId) {
+      this.loadBookDetails(recipeId);
     }
     // Assume you have some way to get the username, e.g., from a user service or authentication token
     this.username = 'logged-in-username'; // Replace this with actual username retrieval logic
   }
 
-  loadBookDetails(bookId: string): void {
-    this.authService.getBook(bookId).subscribe(
+  loadBookDetails(recipeId: string): void {
+    this.authService.getBook(recipeId).subscribe(
       response => {
-        this.recipie = response;
+        this.recipe = response;
       },
       error => {
         this.message = 'Failed to load book details. Please try again.';
@@ -41,13 +41,13 @@ export class RecipiesDetailsComponent implements OnInit {
   }
 
   addComment(): void {
-    const bookId = this.route.snapshot.paramMap.get('id');
-    if (bookId && this.comment && this.username) {
-      this.authService.addComment(bookId, this.comment, this.username).subscribe(
+    const recipeId = this.route.snapshot.paramMap.get('id');
+    if (recipeId && this.comment && this.username) {
+      this.authService.addComment(recipeId, this.comment, this.username).subscribe(
         response => {
           this.message = 'Comment added successfully!';
           this.comment = '';
-          this.loadBookDetails(bookId);  // Reload to show the new comment
+          this.loadBookDetails(recipeId);  // Reload to show the new comment
         },
         error => {
           this.message = 'Failed to add comment. Please try again.';

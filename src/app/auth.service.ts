@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:5000';  // Ensure this URL matches your Flask server
+  private apiUrl = 'http://127.0.0.1:5000';
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +18,8 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
   }
 
-  getBooks(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/books`);
+  getRecipies(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/recipies`);
   }
 
   getBook(bookId: string): Observable<any> {

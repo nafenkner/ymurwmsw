@@ -1,25 +1,34 @@
-<h1>Biz Directory</h1>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <div *ngFor="let business of business_list">
-        <div
-          class="card text-white bg-primary mb-3"
-          style="width: 50rem; margin: auto"
-        >
-          <div class="card-header">
-            {{ business.name }}
-          </div>
-          <div class="card-body">
-            This business is based in
-            {{ business.city }}
-          </div>
-          <div class="card-footer">
-            {{ business.review_count }}
-            reviews available
-          </div>
-        </div>
-      </div>
+      <!-- Table for displaying business data -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Ingredients</th>
+            <th scope="col">Instructions</th>
+            <th scope="col">Prep Time</th>
+            <th scope="col">Cook Time</th>
+            <th scope="col">Servings</th>
+            <th scope="col">Level</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through each business and create a row in the table -->
+          <tr *ngFor="let business of webService.business_list">
+            <td>{{ business.name }}</td>
+            <td>{{ business.instructions }}</td>
+            <td>{{ business.ingredients }}</td>
+            <td>{{ business.prepTimeMinutes }}</td>
+            <td>{{ business.cookTimeMinutes }}</td>
+            <td>{{ business.servings }}</td>
+            <td>{{ business.difficulty }}</td>
+            <td>{{ business.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <!-- col -->
   </div>

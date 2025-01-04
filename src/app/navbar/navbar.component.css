@@ -1,17 +1,28 @@
-/* Custom styles for the navbar */
-.navbar-custom {
-  background-color: #007bff; /* Blue background */
-}
-
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav .nav-link {
-  background-color: transparent; /* Remove background */
+  background-color: #007bff; /* Remove background */
   color: white; /* White text */
 }
-
+.custom-nav-link {
+  color: white !important; /* Ensures links are white */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+.custom-nav-link:hover {
+  background-color: lightgray; /* Light gray background on hover */
+  color: black !important; /* Changes text color to black on hover */
+}
+.custom-brand {
+  color: white !important; /* Makes the brand name white */
+  background-color: transparent !important; /* Removes any background */
+  text-decoration: none; /* Removes underline */
+}
+.custom-brand:hover {
+  color: lightgray !important; /* Adds a subtle hover effect */
+}
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-nav .nav-link:hover {
   color: #f8f9fa; /* Light white on hover */
+  background-color: transparent;
 }
 
 .navbar-toggler:hover {
@@ -24,5 +35,10 @@
 
 .navbar-toggler {
   border: none; /* Optional: remove border */
+}
+
+.nav-user-email {
+  color: white; /* Ensures user email is white */
+  font-weight: bold;
 }
   

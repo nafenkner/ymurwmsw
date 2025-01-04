@@ -3,10 +3,14 @@
     <br>
     <li *ngFor="let recipie of recipies">
       <a [routerLink]="['/recipies', recipie._id]">
-        <p> Recipe Name: {{ recipie.name }}</p><br>
-        <p> Cook Time: {{ recipie.cookTimeMinutes }} minutes</p><br>
-        <p> Difficulty Level: {{ recipie.difficulty }}</p><br>
-        <p> Rating: {{ recipie.rating }}</p><br>
+        <div class="card" style="width: 60rem;">
+          <div class="card-body">
+            <h5 class="card-title">Recipe Name: {{ recipie.name }}</h5>
+            <p class="card-text">Cook Time: {{ recipie.cookTimeMinutes }} minutes</p>
+            <p class="card-text">Difficulty Level: {{ recipie.difficulty }}</p>
+            <p class="card-text">Rating: {{ recipie.rating }}</p>
+          </div>
+        </div>
       </a>
       <hr>
     </li>

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private user = { email: 'nataliefenkner@yahoo.com' }; // Simulated logged-in user
   private apiUrl = 'http://127.0.0.1:5000';
 
   constructor(private http: HttpClient) { }
@@ -26,6 +27,9 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/books/${bookId}`);
   }
 
+  getUserEmail(): string {
+   return this.user.email;
+ }
   addComment(bookId: string, comment: string, username: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/books/${bookId}/comments`, { comment, username });
   }

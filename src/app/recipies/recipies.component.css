@@ -1,9 +1,14 @@
-h1 {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  p {
-    text-align: center;
-    margin-top: 1rem;
-  }
+body {
+  background-color: #f8f9fa; /* Light gray background for contrast */
+}
+.card {
+  background-color: lightgray; /* Bootstrap primary blue */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}

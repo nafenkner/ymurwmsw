@@ -9,6 +9,8 @@ import { WebService } from './web.service';
 export class BusinessesComponent {
   business_list: any;
   constructor(public webService: WebService) {}
+  searchTerm: string = ''; // Add this property to bind with the search input field.
+
   ngOnInit() { 
     this.webService.getRecipies(); 
 } 

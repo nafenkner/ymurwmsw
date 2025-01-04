@@ -7,11 +7,13 @@ import { BusinessesComponent } from './businesses.component';
 import { RouterModule } from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { AuthModule } from '@auth0/auth0-angular'; 
+//import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RecipeDetailsComponent } from './recipies-details/recipe-details.component';
-import { RecipiesComponent } from './recipies/recipies.component';
+//import { RecipiesComponent } from './recipies/recipies.component';
+import { FilterPipe } from './filter.pipe';
 
 var routes: any = [
   { 
@@ -23,15 +25,16 @@ var routes: any = [
     component: BusinessesComponent 
   },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent }, 
-  { path: 'recipies', component: RecipiesComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login as default
+  //{ path: 'recipies', component: RecipiesComponent },
   { path: 'recipies/:id', component: RecipeDetailsComponent },  
 ];
 
 @NgModule({
-  declarations: [AppComponent, BusinessesComponent, HomeComponent, NavbarComponent, RecipiesComponent,
+  declarations: [FilterPipe, AppComponent, BusinessesComponent, HomeComponent,
     RecipeDetailsComponent,LoginComponent, RegisterComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes) ], 
+  imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AuthModule.forRoot( { domain:'dev-numqhfza.us.auth0.com', clientId: 'QmqMk7F33J1C6axPyqGGd4BUWncBL8l4' }) ], 
   providers: [WebService],
   bootstrap: [AppComponent],
 })

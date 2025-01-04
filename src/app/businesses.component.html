@@ -1,37 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <!-- Table for displaying business data -->
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Ingredients</th>
-            <th scope="col">Instructions</th>
-            <th scope="col">Prep Time</th>
-            <th scope="col">Cook Time</th>
-            <th scope="col">Servings</th>
-            <th scope="col">Level</th>
-            <th scope="col">Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Loop through each business and create a row in the table -->
-          <tr *ngFor="let business of webService.business_list">
-            <td>{{ business.name }}</td>
-            <td>{{ business.instructions }}</td>
-            <td>{{ business.ingredients }}</td>
-            <td>{{ business.prepTimeMinutes }}</td>
-            <td>{{ business.cookTimeMinutes }}</td>
-            <td>{{ business.servings }}</td>
-            <td>{{ business.difficulty }}</td>
-            <td>{{ business.rating}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- col -->
+<div>
+  <br>
+  <br>
+  <h4>All Recipes</h4>
+  <h6>Use the searchbar to search on any particular fields.</h6>
+  <br>
+  <div class="d-flex justify-content-end mb-3">
+    <input
+      type="text"
+      class="form-control w-25"
+      placeholder="Search database..."
+      [(ngModel)]="searchTerm"
+    />
   </div>
-  <!-- row -->
+  <table class="table-striped table-hover table table-responsive">
+    <thead class="thead-light">
+      <tr>
+        <th>Recipe</th>
+        <th>Author</th>
+        <th>Cuisine</th>
+        <th>Meal Type</th>
+        <th>Prep (Min)</th>
+        <th>Cook (Min)</th>
+        <th>Level</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let business of webService.business_list | filter:searchTerm">
+        <td>{{ business.name }}</td>
+        <td>userId{{ business.userId }}</td>
+        <td>{{ business.cuisine }}</td>
+        <td>{{ business.mealType }}</td>
+        <td>{{ business.prepTimeMinutes }}</td>
+        <td>{{ business.cookTimeMinutes }}</td>
+        <td>{{ business.difficulty }}</td>
+        <td>{{ business.rating }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<!-- container -->

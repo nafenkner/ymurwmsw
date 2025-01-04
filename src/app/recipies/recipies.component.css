@@ -1,14 +1,14 @@
 body {
-  background-color: #f8f9fa; /* Light gray background for contrast */
+  background-color: white; /* Light gray background for contrast */
 }
 .card {
-  background-color: lightgray; /* Bootstrap primary blue */
+  background-color: #007bff; /* Bootstrap primary blue */
   color: white; /* White text */
-  border: none; /* Remove default border */
 }
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full height of the viewport */
+  width: 100%;
 }

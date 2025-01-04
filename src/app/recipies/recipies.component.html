@@ -1,18 +1,29 @@
 <div>
-  <ul>
-    <br>
-    <li *ngFor="let recipie of recipies">
-      <a [routerLink]="['/recipies', recipie._id]">
-        <div class="card" style="width: 60rem;">
-          <div class="card-body">
-            <h5 class="card-title">Recipe Name: {{ recipie.name }}</h5>
-            <p class="card-text">Cook Time: {{ recipie.cookTimeMinutes }} minutes</p>
-            <p class="card-text">Difficulty Level: {{ recipie.difficulty }}</p>
-            <p class="card-text">Rating: {{ recipie.rating }}</p>
-          </div>
-        </div>
-      </a>
-      <hr>
-    </li>
-  </ul>
+  <br>
+  <h4>Top 20 Recommended Recipes</h4>
+  <br>
+  <table class="table-striped table-hover table table-responsive">
+    <thead class="thead-light">
+      <tr>
+        <th>Recipe</th>
+        <th>Author</th>
+        <th>Cuisine</th>
+        <th>Prep Time (Min)</th>
+        <th>Cook Time (Min)</th>
+        <th>Level</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipie of recipies | slice:0:20" [routerLink]="['/recipies', recipie.id]" style="cursor: pointer;">
+        <td>{{ recipie.name }}</td>
+        <td>userId{{ recipie.userId }}</td>
+        <td>{{ recipie.cuisine }}</td>
+        <td>{{ recipie.prepTimeMinutes }}</td>
+        <td>{{ recipie.cookTimeMinutes }}</td>
+        <td>{{ recipie.difficulty }}</td>
+        <td>{{ recipie.rating }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

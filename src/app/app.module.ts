@@ -34,7 +34,7 @@ var routes: any = [
 @NgModule({
   declarations: [FilterPipe, AppComponent, BusinessesComponent, HomeComponent,
     RecipeDetailsComponent,LoginComponent, RegisterComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AuthModule.forRoot( { domain:'dev-numqhfza.us.auth0.com', clientId: 'QmqMk7F33J1C6axPyqGGd4BUWncBL8l4' }) ], 
+  imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AuthModule.forRoot( { domain:'dev-oli8w2m3a6xl4rcp.us.auth0.com', clientId: '1K96bJQZabBBdKwxNsU2vuxK93EngJpj' }) ], 
   providers: [WebService],
   bootstrap: [AppComponent],
 })

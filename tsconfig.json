@@ -22,7 +22,11 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": []
   },
   "angularCompilerOptions": {
     "disableTypeScriptVersionCheck": true,
@@ -30,5 +34,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

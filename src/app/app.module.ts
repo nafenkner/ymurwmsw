@@ -7,12 +7,12 @@ import { BusinessesComponent } from './businesses.component';
 import { RouterModule } from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
-import { AuthModule } from '@auth0/auth0-angular'; 
-//import { NavbarComponent } from './navbar/navbar.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RecipeDetailsComponent } from './recipies-details/recipe-details.component';
-//import { RecipiesComponent } from './recipies/recipies.component';
+import { RecipiesComponent } from './recipies/recipies.component';
 import { FilterPipe } from './filter.pipe';
 
 var routes: any = [
@@ -26,8 +26,8 @@ var routes: any = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login as default
-  //{ path: 'recipies', component: RecipiesComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, 
+  { path: 'recipies', component: RecipiesComponent },
   { path: 'recipies/:id', component: RecipeDetailsComponent },  
 ];
 

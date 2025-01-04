@@ -15,14 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipie of recipies | slice:0:20" [routerLink]="['/recipies', recipie.id]" style="cursor: pointer;">
-        <td>{{ recipie.name }}</td>
-        <td>userId{{ recipie.userId }}</td>
-        <td>{{ recipie.cuisine }}</td>
-        <td>{{ recipie.prepTimeMinutes }}</td>
-        <td>{{ recipie.cookTimeMinutes }}</td>
-        <td>{{ recipie.difficulty }}</td>
-        <td>{{ recipie.rating }}</td>
+      <tr *ngFor="let recipe of recipes | slice:0:20" style="cursor: pointer;">
+        <td>{{ recipe.name }}</td>
+        <td>userId{{ recipe.userId }}</td>
+        <td>{{ recipe.cuisine }}</td>
+        <td>{{ recipe.prepTimeMinutes }}</td>
+        <td>{{ recipe.cookTimeMinutes }}</td>
+        <td>{{ recipe.difficulty }}</td>
+        <td>{{ recipe.rating }}</td>
       </tr>
     </tbody>
   </table>

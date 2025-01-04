@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { NgModel } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -9,23 +7,21 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  username: string = '';
-  password: string = '';
-  message: string = '';
+  username = '';
+  password = '';
+  message = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private http: HttpClient) {}
 
-  register(): void {
-    this.authService.register(this.username, this.password).subscribe(response => {
-        this.message = 'Registration successful! Redirecting to login...';
-        console.log(response);
-        // Redirect to login page after successful registration
-        setTimeout(() => this.router.navigate(['/login']), 2000);  // Delay for user to read success message
+  onRegister() {
+    const payload = { username: this.username, password: this.password };
+    this.http.post('http://127.0.0.1:5000/register', payload).subscribe({
+      next: (response: any) => {
+        this.message = response.message;
       },
-      error => {
-        this.message = 'Registration failed. Please try again.';
-        console.error('Registration error:', error);
+      error: (err) => {
+        this.message = err.error.message;
       }
-    );
+    });
   }
 }

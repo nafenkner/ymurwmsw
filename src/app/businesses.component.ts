@@ -1,8 +1,9 @@
+
 import { Component } from '@angular/core';
 import { WebService } from './web.service'; 
 
 @Component({
-  selector: 'businesses',
+  selector: 'recipes',
   templateUrl: './businesses.component.html',
   styleUrls: ['./businesses.component.css'],
 })

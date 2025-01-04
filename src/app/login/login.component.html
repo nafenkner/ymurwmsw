@@ -1,29 +1,31 @@
-<div class="container">
-    <h2 class="text-center mt-5">Login</h2>
-    <form (ngSubmit)="login()" class="col-md-6 mx-auto mt-4 p-4 border rounded shadow-sm bg-light">
-      
-      <!-- Username Field -->
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" id="username" class="form-control"  [(ngModel)]="email" name="username" required placeholder="Enter your username">
-      </div>
-  
-      <!-- Password Field -->
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required placeholder="Enter your password">
-      </div>
-  
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary w-100">Login</button>
-      
-    </form>
-  
-  
-    <!-- Link to Register -->
-    <p class="text-center mt-2">
-      Don't have an account? <a href="/register" class="text-decoration-none">Register here</a>
-    </p>
-  </div>
-  
-  
+<div class="container mt-5">
+  <h2 class="text-center">Login</h2>
+  <form (submit)="login()" class="w-50 mx-auto">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        id="username"
+        class="form-control"
+        [(ngModel)]="username"
+        name="username"
+        required
+        placeholder="Enter your username"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        [(ngModel)]="password"
+        name="password"
+        required
+        placeholder="Enter your password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <!-- <p *ngIf="message" class="text-center mt-3">{{ message }}</p> -->
+</div>

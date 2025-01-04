@@ -8,11 +8,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { AuthModule } from '@auth0/auth0-angular';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavComponent } from './navbar/nav.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { RecipeDetailsComponent } from './recipies-details/recipe-details.component';
-import { RecipiesComponent } from './recipies/recipies.component';
+//import { RecipeDetailsComponent } from './recipies-details/recipe-details.component';
+import { RecipiesComponent } from './recipes/recipes.component';
 import { FilterPipe } from './filter.pipe';
 
 var routes: any = [
@@ -20,20 +20,21 @@ var routes: any = [
     path: '',  
     component: HomeComponent 
   }, 
-  { 
-    path: 'businesses',  
-    component: BusinessesComponent 
-  },
+  // { 
+  //   path: 'businesses',  
+  //   component: BusinessesComponent 
+  // },
   { path: 'register', component: RegisterComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
-  { path: 'recipies', component: RecipiesComponent },
-  { path: 'recipies/:id', component: RecipeDetailsComponent },  
+  { path: 'recipes', component: RecipiesComponent },
+  //{ path: 'recipies/:id', component: RecipeDetailsComponent },  
 ];
 
 @NgModule({
-  declarations: [FilterPipe, AppComponent, BusinessesComponent, HomeComponent,
-    RecipeDetailsComponent,LoginComponent, RegisterComponent],
+  declarations: [FilterPipe, AppComponent, HomeComponent, NavComponent, BusinessesComponent,  LoginComponent,
+    RegisterComponent,],
   imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AuthModule.forRoot( { domain:'dev-oli8w2m3a6xl4rcp.us.auth0.com', clientId: '1K96bJQZabBBdKwxNsU2vuxK93EngJpj' }) ], 
   providers: [WebService],
   bootstrap: [AppComponent],

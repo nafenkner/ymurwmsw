@@ -1,29 +1,25 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { HttpErrorResponse } from '@angular/common/http'; // Import this if it's an HTTP error
-
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
+  constructor(private loginService: LoginService) {}
 
-  constructor(private authService: AuthService) {}
-
-  onLogin(): void {
-    this.authService.login(this.email, this.password).subscribe({
-      next: (response: Error ) => {
+  login() {
+    this.loginService.login('test', '1234').subscribe(
+      (response) => {
         console.log('Login successful:', response);
-        // Handle success (e.g., navigate to a dashboard)
       },
-      error: (error: Error ) => { // Specify the type explicitly
-        this.errorMessage = 'Login failed. Please check your credentials.';
+      (error) => {
         console.error('Login error:', error);
-      },
-    })}
+      }
+    );
   }
+}

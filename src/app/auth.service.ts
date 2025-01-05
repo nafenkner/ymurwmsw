@@ -18,8 +18,8 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
   }
 
-  getRecipies(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/recipies`);
+  getRecipes(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/recipes`);
   }
 
   getRecipe(recipeID: string): Observable<any> {

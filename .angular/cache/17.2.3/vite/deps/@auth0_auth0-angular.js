@@ -1,11 +1,11 @@
 import {
   Router
-} from "./chunk-5IMWXMJL.js";
-import "./chunk-3K2XK74Q.js";
-import "./chunk-K5KUQJDS.js";
+} from "./chunk-AUDUHTWU.js";
+import "./chunk-RB7NGT3Q.js";
+import "./chunk-UFQVEM7M.js";
 import {
   Location
-} from "./chunk-IM4WF3J6.js";
+} from "./chunk-CM4IGFMY.js";
 import {
   BehaviorSubject,
   Inject,
@@ -17,6 +17,9 @@ import {
   ReplaySubject,
   Subject,
   VERSION,
+  __async,
+  __spreadProps,
+  __spreadValues,
   catchError,
   concatMap,
   defer,
@@ -45,12 +48,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-V4AUJPJJ.js";
-import {
-  __async,
-  __spreadProps,
-  __spreadValues
-} from "./chunk-LH2UFJUH.js";
+} from "./chunk-4QSNT4W3.js";
 
 // node_modules/@auth0/auth0-spa-js/dist/auth0-spa-js.production.esm.js
 function e(e2, t2) {

@@ -1,6 +1,6 @@
 <div>
   <br>
-  <h4>Top 20 Recommended Recipes</h4>
+  <h4>Top 10 Recommended Recipes</h4>
   <br>
   <table class="table-striped table-hover table table-responsive">
     <thead class="thead-light">
@@ -15,14 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes | slice:0:20" style="cursor: pointer;">
+      <tr *ngFor="let recipe of recipes | slice:0:10" style="cursor: pointer;">
         <td>{{ recipe.name }}</td>
         <td>userId{{ recipe.userId }}</td>
         <td>{{ recipe.cuisine }}</td>
         <td>{{ recipe.prepTimeMinutes }}</td>
         <td>{{ recipe.cookTimeMinutes }}</td>
         <td>{{ recipe.difficulty }}</td>
-        <td>{{ recipe.rating }}</td>
+
       </tr>
     </tbody>
   </table>

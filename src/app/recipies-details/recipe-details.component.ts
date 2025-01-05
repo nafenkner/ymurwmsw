@@ -9,10 +9,10 @@ import { HttpErrorResponse } from '@angular/common/http'; // For HTTP error typi
   styleUrls: ['./recipe-details.component.css']
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe: any; // You can replace `any` with a `Recipe` model if you have one
+  recipe: any; 
   comment: string = '';
   message: string = '';
-  username: string = ''; // Logged-in username
+  username: string = ''; 
 
   constructor(
     private authService: AuthService,
@@ -25,9 +25,6 @@ export class RecipeDetailsComponent implements OnInit {
     if (recipeID) {
       this.loadRecipeDetails(recipeID);
     }
-
-    // Example of retrieving the logged-in username
-    //this.username = this.authService.get(); // Replace with your logic
   }
 
   loadRecipeDetails(recipeID: string): void {

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { WebService } from './web.service'; 
 
 @Component({
-  selector: 'recipes',
+  selector: 'businesses',
   templateUrl: './businesses.component.html',
   styleUrls: ['./businesses.component.css'],
 })

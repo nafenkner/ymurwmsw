@@ -1,30 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
+import { WebService } from '../web.service'; 
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-recipes',
+  selector: 'recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css']
+  styleUrls: ['./recipes.component.css'],
 })
-export class RecipiesComponent implements OnInit {
-  recipies: any[] = [];
-  message: string = '';
+export class RecipiesComponent {
+  recipes: any;
+  constructor( private authService: AuthService) {}
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-    this.loadRecipies();
-  }
-
-  loadRecipies(): void {
-    this.authService.getRecipies().subscribe(
-      response => {
-        this.recipies = response;
-      },
-      error => {
-        this.message = 'Failed to load books. Please try again.';
-        console.error('Error loading books:', error);
-      }
-    );
-  }
+  ngOnInit() { 
+    this.authService.getRecipes(); 
+} 
 }

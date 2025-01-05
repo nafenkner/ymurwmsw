@@ -1,27 +1,34 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  username = '';
-  password = '';
-  message = '';
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  successMessage: string = '';
+  errorMessage: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  onRegister() {
-    const payload = { username: this.username, password: this.password };
-    this.http.post('http://127.0.0.1:5000/register', payload).subscribe({
-      next: (response: any) => {
-        this.message = response.message;
-      },
-      error: (err) => {
-        this.message = err.error.message;
-      }
-    });
+  register() {
+    if (this.username && this.email && this.password) {
+      // Simulate a successful registration
+      this.successMessage = 'Registration successful!';
+      this.errorMessage = '';
+      this.clearForm();
+    } else {
+      this.errorMessage = 'Please fill out all fields.';
+      this.successMessage = '';
+    }
+  }
+
+  clearForm() {
+    this.username = '';
+    this.email = '';
+    this.password = '';
   }
 }

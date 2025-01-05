@@ -6,18 +6,46 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000';  // Ensure this URL matches your Flask server
+  private apiUrl = 'http://localhost:5000';  
+  private users: { email: string; password: string }[] = [];
+  private currentUser: string | null = null;
 
   constructor(private http: HttpClient) { }
 
-  register(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, { username, password });
+  registerUser(email: string, password: string): boolean {
+    const userExists = this.users.some((user) => user.email === email);
+
+    if (userExists) {
+      return false; 
+    }
+
+    this.users.push({ email, password });
+    localStorage.setItem('users', JSON.stringify(this.users)); 
+    return true;
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
+  loginUser(email: string, password: string): boolean {
+    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+    const userFound = storedUsers.some(
+      (user: { email: string; password: string }) =>
+        user.email === email && user.password === password
+    );
+
+    if (userFound) {
+      this.currentUser = email;
+      return true;
+    }
+
+    return false;
   }
 
+  getCurrentUser(): string | null {
+    return this.currentUser;
+  }
+
+  logoutUser(): void {
+    this.currentUser = null;
+  }
   getRecipes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/recipes`);
   }

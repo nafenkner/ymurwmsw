@@ -1,0 +1,181 @@
+<h2 class="my-4 text-center">Edit Recipe</h2>
+<form class="container">
+  <!-- Recipe Name -->
+  <div class="mb-3">
+    <label for="recipeName" class="form-label">Recipe Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="recipeName"
+      [(ngModel)]="recipe.name"
+      name="name"
+      placeholder="Enter recipe name"
+    />
+  </div>
+
+  <!-- Ingredients -->
+  <div class="mb-3">
+    <label for="recipeIngredients" class="form-label">Ingredients</label>
+    <textarea
+      class="form-control"
+      id="recipeIngredients"
+      [(ngModel)]="recipe.ingredients"
+      name="ingredients"
+      rows="4"
+      placeholder="Enter ingredients separated by commas"
+    ></textarea>
+  </div>
+
+  <!-- Instructions -->
+  <div class="mb-3">
+    <label for="recipeInstructions" class="form-label">Instructions</label>
+    <textarea
+      class="form-control"
+      id="recipeInstructions"
+      [(ngModel)]="recipe.instructions"
+      name="instructions"
+      rows="4"
+      placeholder="Enter cooking instructions"
+    ></textarea>
+  </div>
+
+  <!-- Prep Time -->
+  <div class="mb-3">
+    <label for="prepTime" class="form-label">Prep Time (Minutes)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="prepTime"
+      [(ngModel)]="recipe.prepTimeMinutes"
+      name="prepTimeMinutes"
+      placeholder="Enter preparation time"
+    />
+  </div>
+
+  <!-- Cook Time -->
+  <div class="mb-3">
+    <label for="cookTime" class="form-label">Cook Time (Minutes)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="cookTime"
+      [(ngModel)]="recipe.cookTimeMinutes"
+      name="cookTimeMinutes"
+      placeholder="Enter cooking time"
+    />
+  </div>
+
+  <!-- Servings -->
+  <div class="mb-3">
+    <label for="servings" class="form-label">Servings</label>
+    <input
+      type="number"
+      class="form-control"
+      id="servings"
+      [(ngModel)]="recipe.servings"
+      name="servings"
+      placeholder="Enter number of servings"
+    />
+  </div>
+
+  <!-- Difficulty -->
+  <div class="mb-3">
+    <label for="difficulty" class="form-label">Difficulty</label>
+    <select
+      class="form-select"
+      id="difficulty"
+      [(ngModel)]="recipe.difficulty"
+      name="difficulty"
+    >
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    </select>
+  </div>
+
+  <!-- Cuisine -->
+  <div class="mb-3">
+    <label for="cuisine" class="form-label">Cuisine</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cuisine"
+      [(ngModel)]="recipe.cuisine"
+      name="cuisine"
+      placeholder="Enter cuisine type"
+    />
+  </div>
+
+  <!-- Calories Per Serving -->
+  <div class="mb-3">
+    <label for="calories" class="form-label">Calories Per Serving</label>
+    <input
+      type="number"
+      class="form-control"
+      id="calories"
+      [(ngModel)]="recipe.caloriesPerServing"
+      name="caloriesPerServing"
+      placeholder="Enter calories per serving"
+    />
+  </div>
+
+  <!-- Tags -->
+  <div class="mb-3">
+    <label for="tags" class="form-label">Tags</label>
+    <input
+      type="text"
+      class="form-control"
+      id="tags"
+      [(ngModel)]="recipe.tags"
+      name="tags"
+      placeholder="Enter tags separated by commas"
+    />
+  </div>
+
+  <!-- Meal Type -->
+  <div class="mb-3">
+    <label for="mealType" class="form-label">Meal Type</label>
+    <input
+      type="text"
+      class="form-control"
+      id="mealType"
+      [(ngModel)]="recipe.mealType"
+      name="mealType"
+      placeholder="Enter meal type(s) separated by commas"
+    />
+  </div>
+
+  <!-- Rating -->
+  <div class="mb-3">
+    <label for="rating" class="form-label">Rating</label>
+    <input
+      type="number"
+      class="form-control"
+      id="rating"
+      [(ngModel)]="recipe.rating"
+      name="rating"
+      placeholder="Enter rating (e.g., 4.5)"
+      step="0.1"
+      min="0"
+      max="5"
+    />
+  </div>
+
+  <!-- Review Count -->
+  <div class="mb-3">
+    <label for="reviewCount" class="form-label">Review Count</label>
+    <input
+      type="number"
+      class="form-control"
+      id="reviewCount"
+      [(ngModel)]="recipe.reviewCount"
+      name="reviewCount"
+      placeholder="Enter number of reviews"
+    />
+  </div>
+
+  <!-- Save Button -->
+  <button type="button" class="btn btn-primary w-100" (click)="saveRecipe()">
+    Save Recipe
+  </button>
+</form>

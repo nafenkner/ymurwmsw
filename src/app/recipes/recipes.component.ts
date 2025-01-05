@@ -1,18 +1,18 @@
 
 import { Component } from '@angular/core';
 import { WebService } from '../web.service'; 
-import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'recipes',
+  selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
 })
-export class RecipiesComponent {
-  recipes: any;
-  constructor( private authService: AuthService) {}
+export class RecipesComponent {
+  recipe_list: any;
+  constructor(public webService: WebService) {}
+  searchTerm: string = ''; // Add this property to bind with the search input field.
 
   ngOnInit() { 
-    this.authService.getRecipes(); 
+    this.webService.getRecipes(); 
 } 
 }

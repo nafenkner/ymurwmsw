@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+      <h2 class="text-center mb-4">Delete a Recipe</h2>
+      <form (ngSubmit)="deleteRecipe()" class="text-center">
+        <!-- Recipe ID -->
+        <div class="mb-3">
+          <label for="recipeId" class="form-label">Recipe ID</label>
+          <input
+            type="text"
+            id="recipeId"
+            class="form-control"
+            [(ngModel)]="recipeId"
+            name="recipeId"
+            placeholder="Enter the Recipe ID"
+            required
+          />
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-danger btn-lg">
+          Delete Recipe
+        </button>
+      </form>
+  
+      <!-- Message -->
+      <div *ngIf="message" class="alert alert-info mt-4">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  

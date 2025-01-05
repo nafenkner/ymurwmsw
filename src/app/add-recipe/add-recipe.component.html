@@ -1,0 +1,207 @@
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+      <h2 class="text-center mb-4">Add New Recipe</h2>
+      <form (ngSubmit)="addRecipe()">
+        <!-- Recipe Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Recipe Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            [(ngModel)]="recipe.name"
+            name="name"
+            required
+            placeholder="Enter the recipe name"
+          />
+        </div>
+  
+        <!-- Ingredients -->
+        <div class="mb-3">
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="ingredient"
+              class="form-control"
+              [(ngModel)]="newIngredient"
+              name="newIngredient"
+              placeholder="Enter an ingredient"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="addIngredient()"
+            >
+              Add
+            </button>
+          </div>
+          <ul class="list-group">
+            <li
+              *ngFor="let ingredient of recipe.ingredients"
+              class="list-group-item"
+            >
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Tags -->
+        <div class="mb-3">
+          <label for="tags" class="form-label">Tags</label>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="tag"
+              class="form-control"
+              [(ngModel)]="newTag"
+              name="newTag"
+              placeholder="Enter a tag"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="addTag()"
+            >
+              Add
+            </button>
+          </div>
+          <ul class="list-group">
+            <li *ngFor="let tag of recipe.tags" class="list-group-item">
+              {{ tag }}
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Instructions -->
+        <div class="mb-3">
+          <label for="instructions" class="form-label">Instructions</label>
+          <textarea
+            id="instructions"
+            class="form-control"
+            [(ngModel)]="recipe.instructions"
+            name="instructions"
+            rows="5"
+            required
+            placeholder="Enter the step-by-step instructions"
+          ></textarea>
+        </div>
+  
+        <div class="row">
+          <!-- Prep Time -->
+          <div class="col-md-6 mb-3">
+            <label for="prepTime" class="form-label">Preparation Time (minutes)</label>
+            <input
+              type="number"
+              id="prepTime"
+              class="form-control"
+              [(ngModel)]="recipe.prepTimeMinutes"
+              name="prepTimeMinutes"
+              min="0"
+              required
+            />
+          </div>
+  
+          <!-- Cook Time -->
+          <div class="col-md-6 mb-3">
+            <label for="cookTime" class="form-label">Cook Time (minutes)</label>
+            <input
+              type="number"
+              id="cookTime"
+              class="form-control"
+              [(ngModel)]="recipe.cookTimeMinutes"
+              name="cookTimeMinutes"
+              min="0"
+              required
+            />
+          </div>
+        </div>
+  
+        <div class="row">
+          <!-- Servings -->
+          <div class="col-md-6 mb-3">
+            <label for="servings" class="form-label">Servings</label>
+            <input
+              type="number"
+              id="servings"
+              class="form-control"
+              [(ngModel)]="recipe.servings"
+              name="servings"
+              min="1"
+              required
+            />
+          </div>
+  
+          <!-- Difficulty -->
+          <div class="col-md-6 mb-3">
+            <label for="difficulty" class="form-label">Difficulty</label>
+            <select
+              id="difficulty"
+              class="form-control"
+              [(ngModel)]="recipe.difficulty"
+              name="difficulty"
+              required
+            >
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="row">
+          <!-- Cuisine -->
+          <div class="col-md-6 mb-3">
+            <label for="cuisine" class="form-label">Cuisine</label>
+            <input
+              type="text"
+              id="cuisine"
+              class="form-control"
+              [(ngModel)]="recipe.cuisine"
+              name="cuisine"
+              required
+              placeholder="e.g., Italian, Indian"
+            />
+          </div>
+  
+          <!-- Calories -->
+          <div class="col-md-6 mb-3">
+            <label for="calories" class="form-label">Calories per Serving</label>
+            <input
+              type="number"
+              id="calories"
+              class="form-control"
+              [(ngModel)]="recipe.caloriesPerServing"
+              name="caloriesPerServing"
+              min="0"
+              required
+            />
+          </div>
+        </div>
+  
+        <!-- Image URL -->
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            type="text"
+            id="image"
+            class="form-control"
+            [(ngModel)]="recipe.image"
+            name="image"
+            placeholder="Enter a URL for the recipe image"
+          />
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-lg">Add Recipe</button>
+        </div>
+  
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="alert alert-danger mt-4" role="alert">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+  </div>
+  
